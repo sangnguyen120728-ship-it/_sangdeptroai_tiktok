@@ -1,142 +1,187 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-_sangdeptroai_ | Tiktok
-</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0a0a0a;
-      color: #fff;
-    }
-    header {
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      text-align: center;
-      padding: 80px 20px;
-    }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-    .btn {
-      background: #ff0050;
-      color: #fff;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 25px;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: #e60046;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .videos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .videos iframe {
-      border-radius: 12px;
-      border: none;
-      width: 300px;
-      height: 540px;
-    }
-    .about {
-      text-align: center;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 400px;
-      margin: auto;
-    }
-    input, textarea {
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-    }
-    button {
-      background: #ff0050;
-      color: white;
-      padding: 12px;
-      border-radius: 25px;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: 0.3s;
-    }
-    button:hover {
-      background: #e60046;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #111;
-      font-size: 0.9rem;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>_sangdeptroai_ | Tiktok</title>
+<style>
+  /* === Nền galaxy đẹp === */
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    height: 100%;
+    overflow-x: hidden;
+    background: radial-gradient(ellipse at bottom, #0b0c10 0%, #1f2833 100%);
+    position: relative;
+  }
+
+  /* Tạo các đám nebula màu sắc */
+  body::before, body::after {
+    content: '';
+    position: fixed;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 30% 30%, #ff00ff55, transparent 60%);
+    mix-blend-mode: screen;
+    animation: nebulaMove 60s linear infinite;
+    z-index: -1;
+  }
+  body::after {
+    background: radial-gradient(circle at 70% 70%, #00ffff55, transparent 60%);
+    animation-duration: 80s;
+  }
+
+  @keyframes nebulaMove {
+    0% { transform: translate(0,0) rotate(0deg);}
+    50% { transform: translate(50px,50px) rotate(45deg);}
+    100% { transform: translate(0,0) rotate(0deg);}
+  }
+
+  /* Tạo sao nhỏ di chuyển */
+  .star {
+    position: fixed;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: starMove linear infinite;
+  }
+
+  @keyframes starMove {
+    0% { transform: translateY(0);}
+    100% { transform: translateY(-1200px);}
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    padding: 80px 20px;
+    z-index: 1;
+    position: relative;
+  }
+  header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00f0ff;
+    text-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff;
+  }
+  header p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #ccc;
+  }
+
+  /* Nút đẹp */
+  .btn {
+    display: inline-block;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #ff0050, #ff9500, #00f0ff);
+    background-size: 200% 200%;
+    transition: 0.5s;
+    box-shadow: 0 0 20px rgba(255,0,80,0.6), 0 0 40px rgba(0,240,255,0.4);
+  }
+  .btn:hover {
+    background-position: right center;
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255,0,80,0.8), 0 0 50px rgba(0,240,255,0.6);
+  }
+  .btn:active { transform: scale(0.95); }
+
+  section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+    z-index: 1;
+    position: relative;
+  }
+
+  .videos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .videos blockquote {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+  }
+
+  .about { text-align: center; }
+  .about h2 { color: #00f0ff; text-shadow: 0 0 10px #00f0ff; }
+  .contact { text-align: center; }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.6);
+    font-size: 0.9rem;
+    color: #888;
+    position: relative;
+    z-index: 1;
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>
-㋰ | _sangdeptroai_
- | TikTok</h1>
-    <p>Âm nhạc là nhiên liệu, tốc độ là cảm xúc 🚀🔥</p>
-    <a class="btn" href="https://www.tiktok.com/@_sangdeptroai_?is_from_webapp=1&sender_device=pc" target="_blank">Follow TikTok</a>
-  </header>
+<!-- Tạo sao ngẫu nhiên -->
+<script>
+const starCount = 200;
+for(let i=0;i<starCount;i++){
+  const star = document.createElement('div');
+  star.className = 'star';
+  const size = Math.random()*2+1;
+  star.style.width = size+'px';
+  star.style.height = size+'px';
+  star.style.left = Math.random()*window.innerWidth+'px';
+  star.style.top = Math.random()*window.innerHeight+'px';
+  star.style.animationDuration = (Math.random()*20+10)+'s';
+  star.style.opacity = Math.random();
+  document.body.appendChild(star);
+}
+</script>
 
-  <section>
-    <h2 style="text-align:center;">🔥 Video mới nhất</h2>
-    <div class="videos">
-      <!-- Thay link nhúng TikTok của bạn vào đây -->
-      <iframe src="https://www.tiktok.com/@_sangdeptroai_/video/7544328387481947408?is_from_webapp=1&sender_device=pc&web_id=7536474263156999698"></iframe>
-      <iframe src="https://www.tiktok.com/@_sangdeptroai_/video/7540133363693276421?is_from_webapp=1&sender_device=pc&web_id=7536474263156999698"></iframe>
-      <iframe src="https://www.tiktok.com/@_sangdeptroai_/video/7282208273464315137?is_from_webapp=1&sender_device=pc&web_id=7536474263156999698"></iframe>
-    </div>
-  </section>
+<header>
+  <h1>_sangdeptroai_ | Tiktok Editer</h1>
+  <p>Âm nhạc là nhiên liệu, tốc độ là cảm xúc 🚀🔥</p>
+  <a class="btn" href="https://www.tiktok.com/@_sangdeptroai_?is_from_webapp=1&sender_device=pc" target="_blank">Follow TikTok</a>
+</header>
 
-  <section class="about">
-    <h2>✈️ Về tôi</h2>
-    <p>Tôi tạo ra những video edit về máy bay chiến đấu , vv... | Nơi tốc độ và âm nhạc hòa quyện |  
-    Theo dõi để cảm nhận sức mạnh bầu trời!</p>
-  </section>
-
-  <section>
-  <h2 style="text-align:center;">📩 Liên hệ hợp tác</h2>
-  <div style="text-align:center;">
-    <a class="btn" 
-       href="mailto:sangnguyen120728@gmail.com?subject=Hợp tác Fighter Jet Edit&body=Chào Sang, tôi muốn hợp tác cùng bạn..." 
-       target="_blank">
-      Gửi Email
-    </a>
+<section>
+  <h2 style="text-align:center;">🔥 Video mới nhất</h2>
+  <div class="videos">
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@_sangdeptroai_/video/7544328387481947408?is_from_webapp=1&sender_device=pc&web_id=7536474263156999698" data-video-id="7544328387481947408" style="max-width: 325px; min-width: 325px;"><section></section></blockquote>
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@_sangdeptroai_/video/7540133363693276421?is_from_webapp=1&sender_device=pc&web_id=7536474263156999698" data-video-id="7540133363693276421" style="max-width: 325px; min-width: 325px;"><section></section></blockquote>
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@_sangdeptroai_/video/7282208273464315137?is_from_webapp=1&sender_device=pc&web_id=7536474263156999698" data-video-id="7282208273464315137" style="max-width: 325px; min-width: 325px;"><section></section></blockquote>
   </div>
 </section>
 
+<script async src="https://www.tiktok.com/embed.js"></script>
 
-  <footer>
-    © 2025 Fighter _sangdeptroai_ Edits | Designed
-  </footer>
+<section class="about">
+  <h2>✈️ Về tôi</h2>
+  <p>Tôi tạo ra những video edit về máy bay chiến đấu, vv... | nơi tốc độ và âm nhạc hòa quyện.<br> Theo dõi để cảm nhận sức mạnh bầu trời!</p>
+</section>
+
+<section class="contact">
+  <h2>📩 Liên hệ hợp tác</h2>
+  <a class="btn" 
+     href="mailto:sangnguyen120728@gmail.com?subject=Hợp tác Fighter Jet Edit&body=Chào Sang, tôi muốn hợp tác cùng bạn..." 
+     target="_blank">
+    Gửi Email
+  </a>
+</section>
+
+<footer>
+  © 2025 Tiktok | _sangdeptroai_ | Editer
+</footer>
 
 </body>
 </html>
