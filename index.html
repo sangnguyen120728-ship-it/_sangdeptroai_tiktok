@@ -59,7 +59,7 @@
   /* Header */
   header {
     text-align: center;
-    padding: 80px 20px 60px 20px;
+    padding: 80px 20px 10px 20px; /* padding-bottom nhỏ để khoảng cách mũi tên gần video */
     z-index: 1;
     position: relative;
   }
@@ -73,8 +73,37 @@
   }
   header p {
     font-size: 1.2rem;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     color: #ccc;
+  }
+
+  /* Scroll hint - mũi tên */
+  .scroll-hint {
+    text-align: center;
+    font-size: 4rem;           
+    font-weight: bold;
+    color: #00f0ff;
+    text-shadow: 
+      0 0 10px #00f0ff,
+      0 0 20px #00f0ff,
+      0 0 30px #ff00ff,
+      0 0 40px #ff00ff;
+    margin: 5px 0;           /* khoảng cách rất nhỏ */
+    display: block;
+    animation: bounceGlow 1.5s infinite;
+  }
+
+  @keyframes bounceGlow {
+    0%,100% { transform: translateY(0); text-shadow: 
+      0 0 10px #00f0ff,
+      0 0 20px #00f0ff,
+      0 0 30px #ff00ff,
+      0 0 40px #ff00ff; }
+    50% { transform: translateY(15px); text-shadow: 
+      0 0 20px #00f0ff,
+      0 0 40px #00f0ff,
+      0 0 50px #ff00ff,
+      0 0 60px #ff00ff; }
   }
 
   /* Button */
@@ -147,6 +176,7 @@
 
   /* Contact */
   .contact { text-align: center; }
+  .contact h2 { color: #00f0ff; text-shadow: 0 0 10px #00f0ff; } /* thêm neon giống About */
 
   /* Footer */
   footer {
@@ -190,6 +220,9 @@ for(let i=0;i<starCount;i++){
   <p>Âm nhạc là nhiên liệu, tốc độ là cảm xúc 🚀🔥</p>
   <p>|| _sangdeptroai_ ||</p>
   <a class="btn" href="https://www.tiktok.com/@_sangdeptroai_?is_from_webapp=1&sender_device=pc" target="_blank">Follow TikTok</a>
+
+  <!-- Mũi tên scroll hint -->
+  <div class="scroll-hint">↓</div>
 </header>
 
 <section class="videos-section">
