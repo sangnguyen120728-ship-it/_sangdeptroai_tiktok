@@ -59,7 +59,7 @@
   /* Header */
   header {
     text-align: center;
-    padding: 80px 20px 10px 20px; /* padding-bottom nhỏ để khoảng cách mũi tên gần video */
+    padding: 80px 20px 10px 20px;
     z-index: 1;
     position: relative;
   }
@@ -88,7 +88,7 @@
       0 0 20px #00f0ff,
       0 0 30px #ff00ff,
       0 0 40px #ff00ff;
-    margin: 5px 0;           /* khoảng cách rất nhỏ */
+    margin: 5px 0;
     display: block;
     animation: bounceGlow 1.5s infinite;
   }
@@ -136,13 +136,9 @@
     margin: auto;
     z-index: 1;
     position: relative;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s ease, transform 1s ease;
-  }
-  section.visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1;              /* luôn hiện */
+    transform: translateY(0);/* không dịch chuyển */
+    transition: none;        /* bỏ hiệu ứng */
   }
 
   /* Videos kiểu tam giác + hover effect */
@@ -176,7 +172,7 @@
 
   /* Contact */
   .contact { text-align: center; }
-  .contact h2 { color: #00f0ff; text-shadow: 0 0 10px #00f0ff; } /* thêm neon giống About */
+  .contact h2 { color: #00f0ff; text-shadow: 0 0 10px #00f0ff; }
 
   /* Footer */
   footer {
@@ -258,22 +254,6 @@ for(let i=0;i<starCount;i++){
 </footer>
 
 <script async src="https://www.tiktok.com/embed.js"></script>
-
-<!-- Scroll reveal -->
-<script>
-const sections = document.querySelectorAll('section');
-function revealSections() {
-  const triggerBottom = window.innerHeight / 1.2;
-  sections.forEach(section => {
-    const sectionTop = section.getBoundingClientRect().top;
-    if(sectionTop < triggerBottom){
-      section.classList.add('visible');
-    }
-  });
-}
-window.addEventListener('scroll', revealSections);
-window.addEventListener('load', revealSections);
-</script>
 
 </body>
 </html>
